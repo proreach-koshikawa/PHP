@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <form method="GET" action="/alldata/search">
+        <label for="search">名前で検索する</label>
+        <input type="text" name = "name" id ="search">
+        <button class="serch-btn">検索</button>
+    </form>
+
+
+    <table class ="table">
+        <tr>
+            <th>id</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>年齢</th>
+        </tr> 
+        <% for (var i in content) { %>
+        <tr>
+            <% var obj = content[i] %>
+            <td class="id"><%= obj.id %></td>
+            <td class="name"><%= obj.name %></td>
+            <td class="mail"><%= obj.mail %></td>
+            <td class="age"><%= obj.age %></td>
+        </tr> 
+        <% } %>
+    </table>
+</body>
+
+<style>
+    table { 
+        border-collapse: separate;
+        border:4px solid #0f0827;
+        border-spacing: 1px;
+              
+        }
+    tr:first-child{
+        color: white;
+        background: #7371f3;
+        }
+    th,td {
+    border: solid 1px;          /* 枠線指定 */
+}
+</style>
+</html>
